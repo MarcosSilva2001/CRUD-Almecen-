@@ -7,6 +7,7 @@ import Model.Producto;
 import View.FormLogin;
 import View.FormRegistro;
 import View.VistaProductos;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -129,13 +130,14 @@ public class ControladoraProductos implements ActionListener {
                 login.setVisible(false);
 
                 // Mostrar la ventana principal solo si el inicio de sesión es exitoso
-                
+                // Configuración del tema FlatGradiantoDeepOceanIJTheme
+               FlatArcDarkIJTheme.setup();
                 this.vista.setVisible(true);
                 this.vista.setTitle("Almacen");
                 this.vista.setLocationRelativeTo(null);
                 listarTabla();
 
-            } 
+            }
         }
 
         if (e.getSource() == vista.btn_limpiar) {

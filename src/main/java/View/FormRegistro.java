@@ -63,7 +63,7 @@ public class FormRegistro extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 101, 39));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 229, 101, 40));
 
         btnVolver.setBackground(new java.awt.Color(0, 153, 153));
         btnVolver.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
@@ -75,7 +75,7 @@ public class FormRegistro extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, 30));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, 40));
 
         jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator3.setForeground(new java.awt.Color(51, 51, 51));

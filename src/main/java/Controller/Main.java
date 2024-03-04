@@ -5,13 +5,11 @@ import Model.Producto;
 import View.FormLogin;
 import View.FormRegistro;
 import View.VistaProductos;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 
 public class Main {
 
     public static void main(String[] args) {
-        // Configuración del tema FlatGradiantoDeepOceanIJTheme
-        FlatArcDarkIJTheme.setup();
+        
 
         // instancias
         ConsultasSQL consultaprod = new ConsultasSQL();
