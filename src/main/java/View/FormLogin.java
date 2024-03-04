@@ -3,6 +3,7 @@ package View;
 public class FormLogin extends javax.swing.JFrame {
 
     public FormLogin() {
+        
         initComponents();
         this.setLocationRelativeTo(null);
     }

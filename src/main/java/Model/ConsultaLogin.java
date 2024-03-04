@@ -1,6 +1,5 @@
 package Model;
 
-import Model.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,36 +24,27 @@ public class ConsultaLogin {
     }
 
     public boolean consultarUsuario(String user, String pass) {
-
         Conexion con = new Conexion();
         Connection conexion = con.Conectar();
-        // Se inicializa a null
-        String usuarioCorrecto = null;
-        String passCorrecto = null;
+        String sql = "SELECT nombre, clave FROM usuarios WHERE nombre = ?";
 
-        String sql = "SELECT nombre, clave FROM usuarios";
-        PreparedStatement pst;
-        ResultSet rs;
+        try (PreparedStatement pst = conexion.prepareStatement(sql)) {
+            pst.setString(1, user);
+            ResultSet rs = pst.executeQuery();
 
-        try {
-
-            pst = conexion.prepareStatement(sql);
-            rs = pst.executeQuery();
-
-            while (rs.next()) {
-                usuarioCorrecto = rs.getString(1);
-                passCorrecto = rs.getString(2);
-
-                if (user.equals(usuarioCorrecto) && pass.equals(passCorrecto)) {
+            if (rs.next()) {
+                String passCorrecto = rs.getString("clave");
+                if (pass.equals(passCorrecto)) {
                     JOptionPane.showMessageDialog(null, "Bienvenido " + user);
                     return true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
+                    return false;
                 }
-
-                // Si el bucle termina y no se encontró un usuario con las credenciales proporcionadas
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario no encontrado");
                 return false;
             }
-
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al consultar la base de datos: " + e.getMessage());
             return false;
@@ -67,7 +57,6 @@ public class ConsultaLogin {
                 JOptionPane.showMessageDialog(null, "Error al cerrar la conexión: " + e.getMessage());
             }
         }
-        return false;
-
     }
+
 }

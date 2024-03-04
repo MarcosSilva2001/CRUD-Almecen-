@@ -1,8 +1,12 @@
 package View;
 
+import com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme;
+
 public class VistaProductos extends javax.swing.JFrame {
 
     public VistaProductos() {
+        // Configuración del tema FlatGradiantoDeepOceanIJTheme
+         FlatGradiantoDeepOceanIJTheme.setup();
         initComponents();
     }
 
